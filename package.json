@@ -1,0 +1,30 @@
+{
+    "name": "attendance_api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "npx nodemon",
+        "format": "prettier --write \"src/**/*.js\""
+    },
+    "keywords": [],
+    "author": "Tran Van Si",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "express": "^4.18.2",
+        "express-validator": "^7.0.1",
+        "googleapis": "^134.0.0",
+        "jsonwebtoken": "^9.0.2",
+        "lodash": "^4.17.21",
+        "mongoose": "^8.2.0",
+        "morgan": "^1.10.0",
+        "nodemon": "^3.1.0",
+        "prettier": "^3.2.5",
+        "qrcode": "^1.5.3"
+    }
+}
