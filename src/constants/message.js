@@ -19,7 +19,11 @@ const userMessage = {
     FULLNAME_MIN_LENGTH: 'Họ và tên phải chứa ít nhất 6 ký tự',
     CODE_NOT_EMPTY: 'Mã số không được bỏ trống',
     CODE_INVALID: 'Mã số không hợp lệ',
-    CODE_EXISTED: 'Mã số đã tồn tại trong hệ thống'
+    CODE_EXISTED: 'Mã số đã tồn tại trong hệ thống',
+    STUDENT_ID_NOT_EMPTY: 'Mã số sinh viên không được bỏ trống',
+    STUDENT_ID_INVALID: 'Mã số sinh viên không hợp lệ',
+    STUDENT_SUBJECT_EXISTED: 'Sinh viên đã tồn tại trong học phần này',
+    USER_ID_NOT_EMPTY: 'Mã người dùng không được bỏ trống'
 }
 
 const serverMessage = {
@@ -27,6 +31,9 @@ const serverMessage = {
     NOT_FOUND: 'Không tìm thấy tài nguyên',
     FORBIDDEN: 'Không có quyền truy cập tài nguyên này',
     UNAUTHORIZED: 'Không được phép'
+}
+const utilsMessage = {
+    OBJECT_ID_INVALID: 'Object id không hợp lệ'
 }
 
 const roleMessage = {
@@ -46,9 +53,34 @@ const scanerMessage = {
     SCANER_SUCCESS: 'Điểm danh thành công'
 }
 
+const moduleMessage = {
+    MODULE_NOT_EMPTY: 'Tên học phần không được bỏ trống',
+    MODULE_EXISTED: 'Học phần đã tồn tại trong hệ thống',
+    MODULE_ID_NOT_EMPTY: 'Mã học phần không được bỏ trống',
+    MODULE_ID_INVALID: 'Mã học phần không hợp lệ',
+    USER_MODULE_EXISTED: 'Người dùng đã tồn tại trong học phần này'
+}
+
+const shiftMessage = {
+    SHIFT_TIME_NOT_EMPTY: 'Thời gian ca học không được bỏ trống',
+    SHIFT_NAME_NOT_EMPTY: 'Tên ca học không được bỏ trống',
+    SHIFT_NAME_MIN_LENGTH: 'Tên ca học phải chứa ít nhất 4 ký tự',
+    SHIFT_ID_INVALID: 'Mã ca học không hợp lệ',
+    SHIFT_ID_NOT_EMPTY: 'Mã ca học không được bỏ trống'
+}
+const attendanceMessage = {
+    ATTENDANCE_ID_NOT_EMPTY: 'Mã điểm danh không được bỏ trống',
+    ATTENDANCE_DETAIL_EXISTED: 'Sinh viên đã điểm danh rồi',
+    USER_NOT_FOUND: 'Sinh viên không tồn tại',
+    USER_NOT_IN_SHIFT_OR_MODULE: 'Sinh viên không thuộc ca học hoặc học phần này'
+}
 module.exports = {
     userMessage,
     serverMessage,
     roleMessage,
-    scanerMessage
+    scanerMessage,
+    moduleMessage,
+    utilsMessage,
+    shiftMessage,
+    attendanceMessage
 }

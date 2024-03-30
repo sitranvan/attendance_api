@@ -9,6 +9,9 @@ const { env } = require('./configs/env')
 const rolesRouter = require('./routes/roles.routes')
 const { UPLOAD_DIR } = require('./constants/file')
 const scanersRouter = require('./routes/scaners.routes')
+const modulesRouter = require('./routes/modules.routes')
+const shiftsRouter = require('./routes/shifts.routes')
+const attendancesRouter = require('./routes/attendances.routes')
 
 const app = express()
 const uploadDirectory = UPLOAD_DIR
@@ -31,7 +34,10 @@ connectToDatabase()
 
 app.use('/api/v1', usersRouter)
 app.use('/api/v1/roles', rolesRouter)
-app.use('/api/v1/scaner', scanersRouter)
+app.use('/api/v1/scaners', scanersRouter)
+app.use('/api/v1/modules', modulesRouter)
+app.use('/api/v1/shifts', shiftsRouter)
+app.use('/api/v1/attendances', attendancesRouter)
 
 app.use(defaultErrorHandler)
 

@@ -4,16 +4,19 @@ const UserModles = require('../models/schemas/User.modles')
 const RefreshTokenModels = require('../models/schemas/RefreshToken.models')
 const generateQrCode = require('../utils/generateQrCode')
 const { UPLOAD_DIR } = require('../constants/file')
+const { default: mongoose } = require('mongoose')
 
 class UsersService {
     async register(body) {
+        const user_id = new mongoose.Types.ObjectId()
         const uploadDirectory = UPLOAD_DIR
         const qrUrl = await generateQrCode({
-            code: body.code,
-            fullname: body.fullname,
+            user_id: user_id.toString(),
             uploadDirectory
         })
+
         const user = await UserModles.create({
+            _id: user_id,
             code: body.code,
             fullname: body.fullname,
             role: body.role || 'student',
