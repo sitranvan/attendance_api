@@ -58,7 +58,9 @@ const moduleMessage = {
     MODULE_EXISTED: 'Học phần đã tồn tại trong hệ thống',
     MODULE_ID_NOT_EMPTY: 'Mã học phần không được bỏ trống',
     MODULE_ID_INVALID: 'Mã học phần không hợp lệ',
-    USER_MODULE_EXISTED: 'Người dùng đã tồn tại trong học phần này'
+    USER_MODULE_EXISTED: 'Sinh viên đã tồn tại trong môn học này',
+    MODULE_CREATED_SUCCESSFULLY: 'Thêm môn thành công',
+    MODULE_USER_CREATED_SUCCESSFULLY: 'Thêm sinh viên vào môn học thành công'
 }
 
 const shiftMessage = {
@@ -66,7 +68,9 @@ const shiftMessage = {
     SHIFT_NAME_NOT_EMPTY: 'Tên ca học không được bỏ trống',
     SHIFT_NAME_MIN_LENGTH: 'Tên ca học phải chứa ít nhất 4 ký tự',
     SHIFT_ID_INVALID: 'Mã ca học không hợp lệ',
-    SHIFT_ID_NOT_EMPTY: 'Mã ca học không được bỏ trống'
+    SHIFT_ID_NOT_EMPTY: 'Mã ca học không được bỏ trống',
+    USER_EX_SHIFT: 'Sinh viên đã tồn tại trong ca này',
+    CREATE_USER_SHIFT_SUCCESS: 'Thêm sinh viên vào ca thành công'
 }
 const attendanceMessage = {
     ATTENDANCE_ID_NOT_EMPTY: 'Mã điểm danh không được bỏ trống',
@@ -74,6 +78,7 @@ const attendanceMessage = {
     USER_NOT_FOUND: 'Sinh viên không tồn tại',
     USER_NOT_IN_SHIFT_OR_MODULE: 'Sinh viên không thuộc ca học hoặc học phần này'
 }
+
 module.exports = {
     userMessage,
     serverMessage,

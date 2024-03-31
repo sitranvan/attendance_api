@@ -80,6 +80,12 @@ class UsersService {
     async getAllUser() {
         const users = await UserModles.aggregate([
             {
+                $match: {
+                    // Lấy ra role là student
+                    role: 'student'
+                }
+            },
+            {
                 $lookup: {
                     from: 'roles', // Tên bảng của mô hình Role
                     localField: 'role',
@@ -93,7 +99,7 @@ class UsersService {
             {
                 $project: {
                     _id: 1,
-                    name: 1,
+                    code: 1,
                     fullname: 1,
                     gender: 1,
                     email: 1,

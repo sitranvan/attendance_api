@@ -5,6 +5,11 @@ class ShiftsServices {
         const shift = await ShiftModels.create(body)
         return shift
     }
+
+    async getAllShifts() {
+        const shifts = await ShiftModels.find()
+        return shifts
+    }
 }
 
 const shiftsServices = new ShiftsServices()

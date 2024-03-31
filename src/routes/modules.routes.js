@@ -3,13 +3,15 @@ const { Router } = require('express')
 const wrapRequest = require('../utils/request')
 const { validate } = require('../utils/validate')
 
-const { createModuleController } = require('../controllers/modules.controllers')
+const { createModuleController, getAllModuleController } = require('../controllers/modules.controllers')
 const { createUserModuleController } = require('../controllers/users_modules.controllers')
 const { createModuleValidator, createUserModuleValidator } = require('../middlewares/modules.middlewares')
 const jwtAuth = require('../middlewares/jwtAuth.middlewares')
 const authorized = require('../middlewares/authorized.middlewares')
 
 const modulesRouter = Router()
+
+modulesRouter.get('/', jwtAuth, authorized('admin'), wrapRequest(getAllModuleController))
 
 modulesRouter.post(
     '/create',

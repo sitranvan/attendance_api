@@ -5,6 +5,11 @@ class ModulesServices {
         const module = await ModuleModels.create(body)
         return module
     }
+
+    async getAllModule() {
+        const modules = await ModuleModels.find()
+        return modules
+    }
 }
 
 const modulesServices = new ModulesServices()
