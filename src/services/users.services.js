@@ -77,12 +77,12 @@ class UsersService {
         }
     }
 
-    async getAllUser() {
+    async getAllUser({ role = 'student' }) {
         const users = await UserModles.aggregate([
             {
                 $match: {
                     // Lấy ra role là student
-                    role: 'student'
+                    role
                 }
             },
             {

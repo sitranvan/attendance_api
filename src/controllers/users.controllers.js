@@ -50,7 +50,15 @@ const refreshTokenController = async (req, res) => {
 }
 
 const getAllUser = async (req, res) => {
-    const result = await usersService.getAllUser()
+    const result = await usersService.getAllUser({ role: 'student' })
+    return res.json({
+        message: userMessage.GET_ALL_USER_SUCCESS,
+        data: result
+    })
+}
+
+const getAllAdmin = async (req, res) => {
+    const result = await usersService.getAllUser({ role: 'admin' })
     return res.json({
         message: userMessage.GET_ALL_USER_SUCCESS,
         data: result
@@ -61,5 +69,6 @@ module.exports = {
     loginController,
     logoutController,
     refreshTokenController,
-    getAllUser
+    getAllUser,
+    getAllAdmin
 }

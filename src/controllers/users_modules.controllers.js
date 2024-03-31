@@ -17,6 +17,27 @@ const createUserModuleController = async (req, res) => {
     })
 }
 
+const getAllUserByModuleIdController = async (req, res) => {
+    const { module_id } = req.params
+    const result = await usersModulesServices.getAllUserByModuleId(module_id)
+    return res.json({
+        data: result
+    })
+}
+
+const checkUserInModuleController = async (req, res) => {
+    const { user_id, module_id } = req.body
+    const result = await usersModulesServices.checkUserInModule({
+        user_id,
+        module_id
+    })
+    return res.json({
+        data: result
+    })
+}
+
 module.exports = {
-    createUserModuleController
+    createUserModuleController,
+    getAllUserByModuleIdController,
+    checkUserInModuleController
 }

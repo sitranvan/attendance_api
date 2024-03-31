@@ -2,7 +2,11 @@ const { Router } = require('express')
 
 const wrapRequest = require('../utils/request')
 
-const { createShiftController, getAllShiftsController } = require('../controllers/shifts.controllers')
+const {
+    createShiftController,
+    getAllShiftsController,
+    checkExistAttendanceController
+} = require('../controllers/shifts.controllers')
 const { createUserShiftController } = require('../controllers/users_shifts.controllers')
 const jwtAuth = require('../middlewares/jwtAuth.middlewares')
 const authorized = require('../middlewares/authorized.middlewares')
@@ -27,4 +31,6 @@ shiftsRouter.post(
     validate(createUserShiftValidator),
     wrapRequest(createUserShiftController)
 )
+
+shiftsRouter.get('/:shift_id/attendances', jwtAuth, authorized('admin'), wrapRequest(checkExistAttendanceController))
 module.exports = shiftsRouter

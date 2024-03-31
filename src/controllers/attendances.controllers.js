@@ -1,10 +1,14 @@
+const { attendanceMessage } = require('../constants/message')
 const attendancesServices = require('../services/attendances.services')
 
 const createAttendanceController = async (req, res) => {
     const body = req.body
 
     const result = await attendancesServices.createAttendance(body)
-    return res.json(result)
+    return res.json({
+        message: attendanceMessage.ATTENDANCE_CREATED,
+        data: result
+    })
 }
 const getAllAttendanceController = async (req, res) => {
     const result = await attendancesServices.getAllAttendance()

@@ -76,7 +76,8 @@ const attendanceMessage = {
     ATTENDANCE_ID_NOT_EMPTY: 'Mã điểm danh không được bỏ trống',
     ATTENDANCE_DETAIL_EXISTED: 'Sinh viên đã điểm danh rồi',
     USER_NOT_FOUND: 'Sinh viên không tồn tại',
-    USER_NOT_IN_SHIFT_OR_MODULE: 'Sinh viên không thuộc ca học hoặc học phần này'
+    USER_NOT_IN_SHIFT_OR_MODULE: 'Sinh viên không thuộc ca học hoặc học phần này',
+    ATTENDANCE_CREATED: 'Tạo ca điểm danh thành công'
 }
 
 module.exports = {

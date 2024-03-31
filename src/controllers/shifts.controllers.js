@@ -15,8 +15,16 @@ const getAllShiftsController = async (req, res) => {
         data: result
     })
 }
+const checkExistAttendanceController = async (req, res) => {
+    const { shift_id } = req.params
+    const result = await shiftsServices.checkExistAttendance(shift_id)
+    return res.json({
+        data: result
+    })
+}
 
 module.exports = {
     createShiftController,
-    getAllShiftsController
+    getAllShiftsController,
+    checkExistAttendanceController
 }
