@@ -36,22 +36,19 @@ const UserSchema = new Schema({
     role: {
         type: String,
         default: '' //
+    },
+    level: {
+        type: String,
+        default: ''
+    },
+    major: {
+        type: String,
+        default: ''
+    },
+    class: {
+        type: String,
+        default: ''
     }
-    // level: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'level',
-    //     default: null
-    // },
-    // major: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'major',
-    //     default: null
-    // },
-    // class: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'class',
-    //     default: null
-    // }
 })
 
 module.exports = model('User', UserSchema)

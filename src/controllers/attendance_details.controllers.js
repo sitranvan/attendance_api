@@ -6,6 +6,7 @@ const UserModles = require('../models/schemas/User.modles')
 const AttendanceDetailModels = require('../models/schemas/AttendanceDetail.models')
 const httpStatus = require('../constants/httpStatus')
 const { attendanceMessage } = require('../constants/message')
+const sheetsInsert = require('../utils/sheets')
 
 const createAttendanceDetailController = async (req, res) => {
     const body = req.body
@@ -45,6 +46,9 @@ const createAttendanceDetailController = async (req, res) => {
         status: 'present',
         note: body.note
     })
+
+    await sheetsInsert({ value: user })
+
     return res.json(result)
 }
 
