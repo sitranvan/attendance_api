@@ -33,6 +33,10 @@ const UserSchema = new Schema({
         type: String,
         default: ''
     },
+    isBlock: {
+        type: Boolean,
+        default: false
+    },
     role: {
         type: String,
         default: '' //

@@ -20,6 +20,9 @@ class UsersService {
             code: body.code,
             fullname: body.fullname,
             role: body.role || 'student',
+            level: body.level,
+            major: body.major,
+            class: body.class,
             email: body.email,
             password: body.password,
             qr_code: qrUrl

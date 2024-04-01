@@ -12,6 +12,9 @@ const scanersRouter = require('./routes/scaners.routes')
 const modulesRouter = require('./routes/modules.routes')
 const shiftsRouter = require('./routes/shifts.routes')
 const attendancesRouter = require('./routes/attendances.routes')
+const classesRouter = require('./routes/classes.routes')
+const levelsRouter = require('./routes/levels.routes')
+const majorsRouter = require('./routes/majors.routes')
 
 const app = express()
 const uploadDirectory = UPLOAD_DIR
@@ -38,6 +41,9 @@ app.use('/api/v1/scaners', scanersRouter)
 app.use('/api/v1/modules', modulesRouter)
 app.use('/api/v1/shifts', shiftsRouter)
 app.use('/api/v1/attendances', attendancesRouter)
+app.use('/api/v1/classes', classesRouter)
+app.use('/api/v1/levels', levelsRouter)
+app.use('/api/v1/majors', majorsRouter)
 
 app.use(defaultErrorHandler)
 
