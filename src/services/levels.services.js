@@ -8,7 +8,8 @@ class LevelsServices {
     }
     async deleteLevel(id) {
         // check id
-
+        const isObjectId = mongoose.Types.ObjectId.isValid(id)
+        if (!isObjectId) return null;
 
         // tìm các sinh viên có level = id
         const refUsers = await LevelModels.find({ level: id })
