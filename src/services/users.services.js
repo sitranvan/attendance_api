@@ -156,6 +156,76 @@ class UsersService {
 
         return users
     }
+    async getFullUser() {
+        const users = await UserModles.aggregate([
+            {
+                $lookup: {
+                    from: 'roles', // Tên bảng của mô hình Role
+                    localField: 'role',
+                    foreignField: 'slug',
+                    as: 'role_info'
+                }
+            },
+            {
+                $unwind: '$role_info' // Mở rộng mảng role_info
+            },
+            {
+                $lookup: {
+                    from: 'levels', // Tên bảng của mô hình Level
+                    localField: 'level',
+                    foreignField: 'name',
+                    as: 'level_info'
+                }
+            },
+            {
+                $unwind: { path: '$level_info', preserveNullAndEmptyArrays: true } // Mở rộng mảng level_info
+            },
+            {
+                $lookup: {
+                    from: 'majors', // Tên bảng của mô hình Major
+                    localField: 'major',
+                    foreignField: 'name',
+                    as: 'major_info'
+                }
+            },
+            {
+                $unwind: { path: '$major_info', preserveNullAndEmptyArrays: true } // Mở rộng mảng major_info
+            },
+            {
+                $lookup: {
+                    from: 'classes', // Tên bảng của mô hình Class
+                    localField: 'class',
+                    foreignField: 'name',
+                    as: 'class_info'
+                }
+            },
+            {
+                $unwind: { path: '$class_info', preserveNullAndEmptyArrays: true } // Mở rộng mảng class_info
+            },
+            {
+                $project: {
+                    _id: 1,
+                    code: 1,
+                    fullname: 1,
+                    gender: 1,
+                    email: 1,
+                    address: 1,
+                    avatar: 1,
+                    role: 1,
+                    major: 1,
+                    class: 1,
+                    level: 1,
+                    qr_code: 1,
+                    role_info: 1,
+                    level_info: 1,
+                    major_info: 1,
+                    class_info: 1
+                }
+            }
+        ])
+
+        return users
+    }
 }
 
 const usersService = new UsersService()

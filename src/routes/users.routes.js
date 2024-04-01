@@ -7,7 +7,8 @@ const {
     logoutController,
     refreshTokenController,
     getAllUser,
-    getAllAdmin
+    getAllAdmin,
+    getFullUser
 } = require('../controllers/users.controllers')
 const {
     registerValidator,
@@ -29,6 +30,7 @@ usersRouter.post(
     wrapRequest(logoutController)
 )
 usersRouter.post('/refresh-token', validate(refreshTokenValidator), wrapRequest(refreshTokenController))
-usersRouter.get('/users', jwtAuth, authorized('admin'), wrapRequest(getAllUser))
-usersRouter.get('/admin', jwtAuth, authorized('admin'), wrapRequest(getAllAdmin))
+usersRouter.get('/users', jwtAuth, authorized('admin', 'teacher'), wrapRequest(getAllUser))
+usersRouter.get('/admin', jwtAuth, authorized('admin', 'teacher'), wrapRequest(getAllAdmin))
+usersRouter.get('/full', jwtAuth, authorized('admin', 'teacher'), wrapRequest(getFullUser))
 module.exports = usersRouter

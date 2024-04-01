@@ -15,12 +15,12 @@ const authorized = require('../middlewares/authorized.middlewares')
 
 const modulesRouter = Router()
 
-modulesRouter.get('/', jwtAuth, authorized('admin'), wrapRequest(getAllModuleController))
+modulesRouter.get('/', jwtAuth, authorized('admin', 'teacher'), wrapRequest(getAllModuleController))
 
 modulesRouter.get(
     '/:module_id/users',
     jwtAuth,
-    authorized('admin'),
+    authorized('admin', 'teacher'),
 
     wrapRequest(getAllUserByModuleIdController)
 )
@@ -28,7 +28,7 @@ modulesRouter.get(
 modulesRouter.post(
     '/create',
     jwtAuth,
-    authorized('admin'),
+    authorized('admin', 'teacher'),
     validate(createModuleValidator),
     wrapRequest(createModuleController)
 )
@@ -36,10 +36,10 @@ modulesRouter.post(
 modulesRouter.post(
     '/users/create',
     jwtAuth,
-    authorized('admin'),
+    authorized('admin', 'teacher'),
     validate(createUserModuleValidator),
     wrapRequest(createUserModuleController)
 )
 
-modulesRouter.post('/check/users', jwtAuth, authorized('admin'), wrapRequest(checkUserInModuleController))
+modulesRouter.post('/check/users', jwtAuth, authorized('admin', 'teacher'), wrapRequest(checkUserInModuleController))
 module.exports = modulesRouter

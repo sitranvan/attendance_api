@@ -3,13 +3,17 @@ const usersService = require('../services/users.services')
 const { hashPassword } = require('../utils/crypto')
 
 const registerController = async (req, res) => {
-    const { code, fullname, email, password, role } = req.body
+    const { code, fullname, email, gender, password, role, major, level } = req.body
 
     const result = await usersService.register({
         code,
         fullname,
         email,
         role,
+        gender,
+        class: req.body.class,
+        major,
+        level,
         password: hashPassword(password)
     })
     return res.json({
@@ -64,11 +68,19 @@ const getAllAdmin = async (req, res) => {
         data: result
     })
 }
+const getFullUser = async (req, res) => {
+    const result = await usersService.getFullUser()
+    return res.json({
+        message: userMessage.GET_ALL_USER_SUCCESS,
+        data: result
+    })
+}
 module.exports = {
     registerController,
     loginController,
     logoutController,
     refreshTokenController,
     getAllUser,
-    getAllAdmin
+    getAllAdmin,
+    getFullUser
 }

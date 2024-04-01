@@ -10,7 +10,7 @@ const scanersRouter = Router()
 scanersRouter.post(
     '/',
     jwtAuth,
-    authorized('admin'),
+    authorized('admin', 'teacher'),
     validate(createAttendanceDetailValidator),
     wrapRequest(scanerQRCodeController)
 )

@@ -5,6 +5,10 @@ class RolesService {
         const role = await RoleModels.create(body)
         return role
     }
+    async getAllRole() {
+        const roles = await RoleModels.find()
+        return roles
+    }
 }
 
 const rolesService = new RolesService()

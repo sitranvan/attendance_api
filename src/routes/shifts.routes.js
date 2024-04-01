@@ -27,10 +27,15 @@ shiftsRouter.post(
 shiftsRouter.post(
     '/users/create',
     jwtAuth,
-    authorized('admin'),
+    authorized('admin', 'teacher'),
     validate(createUserShiftValidator),
     wrapRequest(createUserShiftController)
 )
 
-shiftsRouter.get('/:shift_id/attendances', jwtAuth, authorized('admin'), wrapRequest(checkExistAttendanceController))
+shiftsRouter.get(
+    '/:shift_id/attendances',
+    jwtAuth,
+    authorized('admin', 'teacher'),
+    wrapRequest(checkExistAttendanceController)
+)
 module.exports = shiftsRouter

@@ -1,15 +1,14 @@
-const { Router } = require("express")
-const { getAllMajor, createMajorController, deleteMajorController } = require("../controllers/majors.controllers")
-const { createMajorValidator } = require("../middlewares/majors.middlewares")
+const { Router } = require('express')
+const { getAllMajor, createMajorController, deleteMajorController } = require('../controllers/majors.controllers')
+const { createMajorValidator } = require('../middlewares/majors.middlewares')
 const wrapRequest = require('../utils/request')
-const jwtAuth = require("../middlewares/jwtAuth.middlewares")
-const authorized = require("../middlewares/authorized.middlewares")
-const { validate } = require("../utils/validate")
-
+const jwtAuth = require('../middlewares/jwtAuth.middlewares')
+const authorized = require('../middlewares/authorized.middlewares')
+const { validate } = require('../utils/validate')
 
 const majorsRouter = Router()
 
-majorsRouter.get('/', jwtAuth, authorized('admin'), wrapRequest(getAllMajor))
+majorsRouter.get('/', jwtAuth, authorized('admin', 'teacher'), wrapRequest(getAllMajor))
 
 majorsRouter.post(
     '/create',

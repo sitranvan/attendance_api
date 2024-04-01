@@ -10,6 +10,6 @@ const { getAllClassController } = require('../controllers/classes.controllers')
 
 const classesRouter = Router()
 
-classesRouter.get('/', jwtAuth, authorized('admin'), wrapRequest(getAllClassController))
+classesRouter.get('/', jwtAuth, authorized('admin', 'teacher'), wrapRequest(getAllClassController))
 
 module.exports = classesRouter

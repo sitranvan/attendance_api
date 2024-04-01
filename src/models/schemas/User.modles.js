@@ -10,8 +10,8 @@ const UserSchema = new Schema({
         default: ''
     },
     gender: {
-        type: Boolean,
-        default: true
+        type: String,
+        default: '1'
     },
     email: {
         type: String,

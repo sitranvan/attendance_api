@@ -8,6 +8,13 @@ const createRoleController = async (req, res) => {
         data: result
     })
 }
+const getAllRoleController = async (req, res) => {
+    const result = await rolesService.getAllRole()
+    return res.json({
+        data: result
+    })
+}
 module.exports = {
-    createRoleController
+    createRoleController,
+    getAllRoleController
 }
