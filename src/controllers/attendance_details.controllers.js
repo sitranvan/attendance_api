@@ -19,7 +19,7 @@ const createAttendanceDetailController = async (req, res) => {
     })
     const userModule = await UserModuleModels.findOne({ user_id: body.user_id, module_id: attendance.module_id })
     const user = await UserModles.findById(body.user_id)
-
+    console.log(user)
     const attendanceDetail = await AttendanceDetailModels.findOne({
         attendance_id: body.attendance_id,
         user_id: body.user_id
