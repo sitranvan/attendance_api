@@ -47,7 +47,7 @@ const createAttendanceDetailController = async (req, res) => {
         note: body.note
     })
 
-    await sheetsInsert({ value: user })
+    // await sheetsInsert({ value: user })
 
     return res.json(result)
 }
