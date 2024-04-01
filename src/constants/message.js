@@ -90,6 +90,16 @@ const majorMessage = {
     MAJOR_DELETE_SUCCESS: 'Xóa Chuyên ngành thành công',
     GET_ALL_MAJOR_SUCCESS: 'Lấy danh sách thành công'
 }
+
+const levelMessage = {
+    LEVEL_NOT_EMPTY: 'Trình độ không được bỏ trống',
+    LEVEL_EXISTED: 'Trình độ đã tồn tại trong hệ thống'
+}
+const classMessage = {
+    CLASS_NOT_EMPTY: 'Lớp không được bỏ trống',
+    CLASS_EXISTED: 'Lớp đã tồn tại trong hệ thống'
+}
+
 module.exports = {
     userMessage,
     serverMessage,
@@ -99,5 +109,7 @@ module.exports = {
     utilsMessage,
     shiftMessage,
     attendanceMessage,
-    majorMessage
+    majorMessage,
+    levelMessage,
+    classMessage
 }
