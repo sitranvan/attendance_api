@@ -1,11 +1,16 @@
 const { scanerMessage } = require('../constants/message')
-const attendanceDetailsServices = require('./attendance_details.services')
+const sheetsInsert = require('../utils/sheets')
+
 class ScanersService {
     data = []
-    async getContentQRCode(body) {
-        await attendanceDetailsServices.createAttendanceDetail(body)
-
-        // await sheetsInsert({ value: content })
+    async getContentQRCode(content) {
+        if (this.data.includes(content)) {
+            return {
+                message: scanerMessage.SCANER_FAIL
+            }
+        }
+        this.data.push(content)
+        await sheetsInsert({ value: content })
         return {
             message: scanerMessage.SCANER_SUCCESS
         }
