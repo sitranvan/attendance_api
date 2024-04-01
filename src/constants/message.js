@@ -80,6 +80,16 @@ const attendanceMessage = {
     ATTENDANCE_CREATED: 'Tạo ca điểm danh thành công'
 }
 
+const majorMessage = {
+    MAJOR_NOT_EMPTY: 'Chuyên ngành không được bỏ trống',
+    MAJOR_INVALID: 'Chuyên ngành không hợp lệ',
+    MAJOR_EXISTED: 'Chuyên ngành đã tồn tại trong hệ thống',
+    MAJOR_NOT_FOUND: 'Chuyên ngành không tồn tại trong hệ thống',
+    MAJOR_CREATE_SUCCESS: 'Tạo Chuyên ngành thành công',
+    MAJOR_UPDATE_SUCCESS: 'Cập nhật Chuyên ngành thành công',
+    MAJOR_DELETE_SUCCESS: 'Xóa Chuyên ngành thành công',
+    GET_ALL_MAJOR_SUCCESS: 'Lấy danh sách thành công'
+}
 module.exports = {
     userMessage,
     serverMessage,
@@ -88,5 +98,6 @@ module.exports = {
     moduleMessage,
     utilsMessage,
     shiftMessage,
-    attendanceMessage
+    attendanceMessage,
+    majorMessage
 }
