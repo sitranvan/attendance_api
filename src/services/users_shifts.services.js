@@ -2,7 +2,7 @@ const UserShiftModels = require('../models/schemas/UserShift.models')
 
 class UsersShiftsServices {
     async createUserShift(body) {
-        const role = await UserShiftModels.create(body)
+        const role = await UserShiftModels.insertMany(body)
         return role
     }
 }
