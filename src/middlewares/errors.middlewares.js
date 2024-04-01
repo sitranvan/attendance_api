@@ -8,8 +8,9 @@ const defaultErrorHandler = (err, req, res, next) => {
     if (err instanceof Error) {
         if (err.code === 'ENOENT') {
             // Xử lý lỗi không tìm thấy tệp
-            statusCode = httpStatus.NOT_FOUND
-            message = serverMessage.NOT_FOUND
+            // statusCode = httpStatus.NOT_FOUND
+            // message = serverMessage.NOT_FOUND
+            next()
         } else if (err.code === 'EACCES') {
             // Xử lý lỗi không có quyền truy cập
             statusCode = httpStatus.FORBIDDEN
