@@ -4,19 +4,16 @@ const UserModles = require('../models/schemas/User.modles')
 const RefreshTokenModels = require('../models/schemas/RefreshToken.models')
 const generateQrCode = require('../utils/generateQrCode')
 const { UPLOAD_DIR } = require('../constants/file')
-const { default: mongoose } = require('mongoose')
 
 class UsersService {
     async register(body) {
-        const user_id = new mongoose.Types.ObjectId()
         const uploadDirectory = UPLOAD_DIR
         const qrUrl = await generateQrCode({
-            user_id: user_id.toString(),
+            code: body.code,
+            fullname: body.fullname,
             uploadDirectory
         })
-
         const user = await UserModles.create({
-            _id: user_id,
             code: body.code,
             fullname: body.fullname,
             role: body.role || 'student',
@@ -77,14 +74,8 @@ class UsersService {
         }
     }
 
-    async getAllUser({ role = 'student' }) {
+    async getAllUser() {
         const users = await UserModles.aggregate([
-            {
-                $match: {
-                    // Lấy ra role là student
-                    role
-                }
-            },
             {
                 $lookup: {
                     from: 'roles', // Tên bảng của mô hình Role
@@ -99,7 +90,7 @@ class UsersService {
             {
                 $project: {
                     _id: 1,
-                    code: 1,
+                    name: 1,
                     fullname: 1,
                     gender: 1,
                     email: 1,

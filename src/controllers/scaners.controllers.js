@@ -1,8 +1,8 @@
 const scanersService = require('../services/scaners.services')
 
 const scanerQRCodeController = async (req, res) => {
-    const body = req.body
-    const result = await scanersService.getContentQRCode(body)
+    const { content } = req.query
+    const result = await scanersService.getContentQRCode(content)
     return res.json(result)
 }
 

@@ -6,8 +6,7 @@ const {
     loginController,
     logoutController,
     refreshTokenController,
-    getAllUser,
-    getAllAdmin
+    getAllUser
 } = require('../controllers/users.controllers')
 const {
     registerValidator,
@@ -30,5 +29,4 @@ usersRouter.post(
 )
 usersRouter.post('/refresh-token', validate(refreshTokenValidator), wrapRequest(refreshTokenController))
 usersRouter.get('/users', jwtAuth, authorized('admin'), wrapRequest(getAllUser))
-usersRouter.get('/admin', jwtAuth, authorized('admin'), wrapRequest(getAllAdmin))
 module.exports = usersRouter
