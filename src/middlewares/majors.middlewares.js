@@ -18,7 +18,6 @@ const createMajorValidator = checkSchema({
         }
     }
 })
-
 module.exports = {
     createMajorValidator
 }

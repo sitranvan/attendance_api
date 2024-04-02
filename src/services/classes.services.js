@@ -5,6 +5,10 @@ class ClassesServices {
         const classes = await ClassModels.find()
         return classes
     }
+    async updatelevel(id, body) {
+        const levels = await ClassModels.updateOne({ id }, body)
+        return levels
+    }
 }
 
 const classesServices = new ClassesServices()

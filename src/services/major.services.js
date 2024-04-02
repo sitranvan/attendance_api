@@ -14,6 +14,10 @@ class MajorsService {
         const major = await MajorModels.findByIdAndDelete(majorId)
         return major
     }
+    async updatelevel(majorId, body) {
+        const levels = await MajorModels.updateOne({ majorId }, body)
+        return levels
+    }
 }
 
 const majorsService = new MajorsService()

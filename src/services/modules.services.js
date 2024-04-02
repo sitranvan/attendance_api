@@ -10,6 +10,10 @@ class ModulesServices {
         const modules = await ModuleModels.find()
         return modules
     }
+    async updateModule() {
+        const modules = await ModuleModels.update()
+        return modules
+    }
 }
 
 const modulesServices = new ModulesServices()
