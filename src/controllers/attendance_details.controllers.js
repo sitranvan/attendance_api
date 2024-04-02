@@ -12,14 +12,14 @@ const createAttendanceDetailController = async (req, res) => {
     const body = req.body
 
     const attendance = await AttendanceModels.findById(body.attendance_id)
-
+    const sheetNumber = attendance.sheet_number
     const userShift = await UserShiftModels.findOne({
         user_id: body.user_id, // Change to code
         shift_id: attendance.shift_id
     })
     const userModule = await UserModuleModels.findOne({ user_id: body.user_id, module_id: attendance.module_id })
     const user = await UserModles.findById(body.user_id)
-    console.log(user)
+
     const attendanceDetail = await AttendanceDetailModels.findOne({
         attendance_id: body.attendance_id,
         user_id: body.user_id
@@ -47,7 +47,7 @@ const createAttendanceDetailController = async (req, res) => {
         note: body.note
     })
 
-    // await sheetsInsert({ value: user })
+    await sheetsInsert({ value: user, sheetNumber: sheetNumber })
 
     return res.json(result)
 }

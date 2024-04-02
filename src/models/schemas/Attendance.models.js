@@ -15,6 +15,10 @@ const Attendance = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'module',
         required: true
+    },
+    sheet_number: {
+        type: String,
+        required: ''
     }
 })
 module.exports = model('attendance', Attendance)
