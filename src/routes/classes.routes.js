@@ -10,8 +10,6 @@ const { getAllClassController, updatelevelController } = require('../controllers
 const { createLevelValidator } = require('../middlewares/level.middlewares')
 const classesRouter = Router()
 
-const a = 10
-
 classesRouter.get('/', jwtAuth, authorized('admin'), wrapRequest(getAllClassController))
 classesRouter.post(
     '/update/:id',
